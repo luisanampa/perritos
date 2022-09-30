@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Basic HTML5 Template</title>
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+  <h1>Razas de Perritos</h1>
+  <img id="img_fotoperritos2"></img>
+  <p id="img_fotoperritos"></p>
+
+  <script>
+      let url = `https://dog.ceo/api/breeds/image/random`;
+      fetch(url)
+      .then(response => {
+        return response.json()
+      })
+      .then(dog => {
+        const dog_image = dog.message;
+        console.log(dog);
+        document.getElementById("img_fotoperritos").innerHTML = dog_image;
+        document.getElementById("img_fotoperritos2").src = dog_image;
+      });
+  </script>
+
+</body>
+</html>
